@@ -1,0 +1,127 @@
+{% extends './index.html' %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title></title>
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="../assets/css/argon.css" type="text/css">
+</head>
+
+<body>
+  
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      
+      {% block stats %}
+      {% block form %}
+      
+              {% endblock form %}
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+           
+            <!-- Light table -->
+            <div class="table-responsive">
+
+              <table class="table align-items-center table-flush">
+                <thead class="thead-dark">
+                  <tr style="text-align:center;">
+                    <th scope="col" class="sort" data-sort="name">name</th>
+                    <th scope="col" class="sort" data-sort="budget">Meter_number</th>
+                    <th scope="col" class="sort" data-sort="completion">Appartment Name</th>
+                    <th scope="col" class="sort" data-sort="completion">Appartment Number</th>
+                    <th scope="col" class="sort" data-sort="completion">Address</th>
+                    <th scope="col" class="sort" data-sort="completion">Usage</th>
+                    {% comment %} <th scope="col" class="sort" data-sort="completion">Status</th> {% endcomment %}
+
+                    <th scope="col" class="sort" data-sort="completion">Update Bill</th>
+                    
+                  </tr>
+                </thead>
+                <tbody class="list" style="text-align:center; color:black;">
+                  {% for c in clients %}
+                  <tr>
+                    
+                    <td class="budget">
+                      {{ c.first_name }}
+                    </td>
+                 
+                 
+                    <td>
+                      {{ c.meter_number }}
+                    </td>  
+                            
+                       
+                      <td>
+                       {{ c.appartment_name }}
+                      </td> 
+                      <td>
+                       {{ c.appartment_number }}
+                      </td>   
+                      <td>
+                        {{ c.address }}
+                      </td>
+                      <td>
+                        {{ c.usage }}
+                      </td>
+                      {% comment %} <td>
+                        {{ c.status }}
+                      </td>  {% endcomment %}
+                      
+                      <td>
+                        <span class="badge badge-dark"><a href="{% url 'update_bill' c.pk %}">Add New bill</a></span>
+                        
+                      </td> 
+                  
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <hr>
+            </div>
+          
+          </div>
+          
+          
+          
+        </div>
+      </div>
+      {% endblock stats %}
+      <!-- Dark table -->
+
+     {% block chart %} 
+        
+      {% endblock chart %}
+      <!-- Footer -->
+      
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Argon JS -->
+  <script src="../assets/js/argon.js?v=1.2.0"></script>
+</body>
+
+</html>

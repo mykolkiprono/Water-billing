@@ -1,0 +1,122 @@
+{% extends './index.html' %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title></title>
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="../assets/css/argon.css" type="text/css">
+</head>
+
+<body>
+  
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      
+      {% block stats %}
+      {% block form %}
+      
+              {% endblock form %}
+        <div class="row" style="color:white;">
+            <form method="POST">
+              {% csrf_token %}
+                <div class="form-row">
+                  
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault03">First Name</label>
+                      <p>{{ client.first_name }}</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault04">Last Name</label>
+                      <p>{{ client.last_name }}</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault05">Phone Number</label>
+                      <p>{{ client.contact_number }}</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault05">Email</label>
+                      <p>{{ user.email }}</p>
+                    </div>
+                
+                </div>
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label for="validationDefault03">Location</label>
+                    <p>{{ client.location }}</p>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="validationDefault04">Address</label>
+                    <p>{{ client.address }}</p>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="validationDefault05">Appartment Name</label>
+                    <p>{{ client.appartment_name }}</p>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="validationDefault05">Appartment Number</label>
+                    <p>{{ client.appartment_number }}</p>
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault03">Meter Number</label><br>
+                      <span class="badge badge-warning">{{ client.meter_number }}</span>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault04">Current Bill</label><br>
+                      {% comment %} <p>{{ bill.meter_consumption }}</p> {% endcomment %}
+                      <span class="badge badge-warning">kshs, {{ total }}</span>
+                      
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault05">Update Consumption</label><br>
+                      <input type="text" name="consuption">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="validationDefault05">Due Date</label><br>
+                      <input type="date" name="due">
+                    </div>
+                    
+                  </div>
+                </div>
+                <button class="btn btn-success" type="submit">Save</button>
+              </form>
+        </div>
+      {% endblock stats %}
+      <!-- Dark table -->
+
+     {% block chart %} 
+        
+      {% endblock chart %}
+      <!-- Footer -->
+      
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Argon JS -->
+  <script src="../assets/js/argon.js?v=1.2.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+
+{% extends './index.html' %}
+
+<div class="container-fluid mt--6">
+{% block stats %}
+<div class="row">
+    <div class="col">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header border-0">
+          <h3 class="mb-0">Problems</h3>
+        </div>
+        <!-- Light table -->
+        <div class="table-responsive">
+
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col" class="sort" data-sort="name">Client</th>
+                <th scope="col" class="sort" data-sort="budget">Problem</th>
+                <th scope="col" class="sort" data-sort="status">Date</th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              {% for p in prblms %}
+              <tr>
+                
+                <td class="budget">
+                  {{ p.client.first_name }}
+                </td>
+                <td>
+                    
+                  {{ p.problem }}
+                </td>
+                <td>
+                  {{ p.date }}
+                </td>
+                             
+              
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        
+      
+      </div>
+    </div>
+        
+      
+</div>
+      
+{% endblock stats %}
+<div class="container-fluid mt--6">
+{% block chart %}
+
+{% endblock chart %}
